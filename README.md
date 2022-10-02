@@ -1,5 +1,6 @@
-# README_HELPER
-Given list of toph problems this will create a syntax listing all the problems in form of github readme format
+
+# Make your problem list beautiful
+If you are thinking of making a list of toph problems and add them in your github readme file then this is the thing you need .Given list of toph problems this will create a syntax listing all the problems in form of github readme format
 
 ## Will convert this link below 
 > https://toph.co/p/some-basic-chords

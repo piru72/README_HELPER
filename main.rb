@@ -11,17 +11,18 @@ def read_problem(file)
   name = file.gets.chomp.to_s
 
   name.slice!("https://toph.co/p/")
-  name = name.upcase
-  name = name.gsub("-", " ")
+  name = name.upcase.gsub("-", " ")
+  link = "https://toph.co/p/" + name.downcase.gsub(" ", "-")
 
-  problemChild = Problem.new(name, "https://toph.co/p/" + name.downcase.gsub(" ", "-"))
-  return problemChild
+  problem = Problem.new(name, link)
+  return problem
 end
 
 def read_problems()
   problem_file = File.new("problemlink.txt", "r")
+
   number_of_lines = File.foreach(problem_file).count
-  puts number_of_lines
+
   problems = Array.new()
 
   while (number_of_lines > 0)
@@ -37,11 +38,9 @@ end
 
 def print_problems(problemsList)
   forGithub = File.new("forGithub.txt", "w")
-  total_problems = problemsList.size
-  puts total_problems
 
   i = 0
-  while (i < total_problems)
+  while (i < problemsList.size)
     forGithub.print "#{i + 1}. "
     forGithub.print "[#{problemsList[i].name}](#{problemsList[i].link})"
     forGithub.puts ""
